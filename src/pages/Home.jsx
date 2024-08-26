@@ -26,7 +26,7 @@ export const Home = () => {
 };
 
 export const HomeContent = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchTerm, setSearchTerm] = useState("");
   const [activeSearch, setActiveSearch] = useState([]);
   const navigate = useNavigate();
   const handleSearch = (e) => {

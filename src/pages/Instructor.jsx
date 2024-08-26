@@ -13,9 +13,9 @@ export const Instructor = () => {
   };
 
   
-  const handleBecomeInstructorClick = () => {
-    navigate('/become-instructor');
-  };
+  // const handleBecomeInstructorClick = () => {
+  //   navigate('/become-instructor');
+  // };
 
   return (
     <section className='instructor mb-16'>
