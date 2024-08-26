@@ -4,8 +4,9 @@ import { Layout } from "./components/common/Layout";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
 import Courses from "./pages/Courses";
+import CourseDetails from './pages/CourseDetails';
 import { Instructor } from "./pages/Instructor";
-import CourseDetails from "./pages/CourseDetails";
+
 import { CreateCourse } from "./pages/CreateCourse"; 
 import Login from "./pages/Login";
 import { courses as dummyCourses } from "./components/assets/data/dummydata";
@@ -30,6 +31,7 @@ function App() {
             </Layout>
           }
         />
+        
         <Route
           path='/about'
           element={

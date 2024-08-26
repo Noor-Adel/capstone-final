@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import heroImg from "../components/assets/images/image.png";
 import heroImgback from "../components/assets/images/hero-shape-purple.png";
 import { FiSearch } from "react-icons/fi";
 import { About } from "./About";
 import Courses from "./Courses";
+
 import { Instructor } from "./Instructor";
 import { Blog } from "./Blog";
 import { courses } from "../components/assets/data/dummydata";
@@ -26,7 +28,7 @@ export const Home = () => {
 export const HomeContent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeSearch, setActiveSearch] = useState([]);
-
+  const navigate = useNavigate();
   const handleSearch = (e) => {
     if (e.target.value === "") {
       setActiveSearch([]);
@@ -42,12 +44,20 @@ export const HomeContent = () => {
     handleSearch(e);
   };
 
+  // const handleSearchResultClick = (course) => {
+  //   window.location.href = `/course?id=${course.id}`;
+  // };
+  
   const handleSearchResultClick = (course) => {
-    window.location.href = `/course?id=${course.id}`;
+    // Handle the click event here
+    // For example, you could navigate to a course details page
+    console.log(`Course clicked: ${course.title}`);
+    // Add your logic here to handle the click event
+    navigate(`/course/${course.id}`);
+  //   
   };
-
   return (
-    <section className="  bg-light py-60 h-[110vh] md:h-full' ">
+    <section className="  bg-light py-20 h-[110vh] md:h-full' ">
 
     <div className="container items-start">
       <div className="flex items-center  justify-center md:flex-col">
