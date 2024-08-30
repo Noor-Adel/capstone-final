@@ -10,7 +10,7 @@ export const About = () => {
       <section className='about py-6'>
         <div className='container'>
           <div className='heading text-center py-5'>
-            <h1 className='text-3xl font-semibold text-blue-900'>About us </h1>
+            <h1 className='text-3xl font-semibold text-pruple-800'>About us </h1>
           </div>
          
         </div>

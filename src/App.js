@@ -10,6 +10,7 @@ import { Instructor } from "./pages/Instructor";
 import { CreateCourse } from "./pages/CreateCourse"; 
 import Login from "./pages/Login";
 import { courses as dummyCourses } from "./components/assets/data/dummydata";
+import Blog from "./pages/Blog";
 
 function App() {
   const [courses, setCourses] = useState([]);
@@ -69,6 +70,15 @@ function App() {
           element={
             <Layout>
               <CreateCourse addCourse={addCourse} />
+            </Layout>
+          }
+         
+        />
+         <Route
+          path='/Blog'
+          element={
+            <Layout>
+              <Blog />
             </Layout>
           }
         />

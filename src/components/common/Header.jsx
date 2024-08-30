@@ -12,7 +12,7 @@ export const Header = () => {
       <header className='bg-white py-4 text-black sticky z-50 shadow-md top-0 left-0 w-full'>
         <div className='container flex justify-between items-center'>
           <div className='logo flex items-center gap-6'>
-            <img src={LogoImg} alt='logo' className='h-5 w-10' />
+            <img src={LogoImg} alt='logo' className='h-20 w-20' />
            
           </div>
           <nav className={open ? "mobile-view" : "desktop-view"}>

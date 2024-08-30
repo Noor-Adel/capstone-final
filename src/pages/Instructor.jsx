@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaGraduationCap, FaUsers } from "react-icons/fa";
 import { GiEvilBook, GiWorld } from "react-icons/gi";
-import InstructorImg from "../components/assets/images/bag.jpg";
+import InstructorImg from "../components/assets/images/Instructor1.png";
 
 export const Instructor = () => {
   const navigate = useNavigate();

@@ -2,65 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaGoogle, FaLinkedin } from 'react-icons/fa'; 
 
-function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
-  
-  };
-
-  return (
-    <LoginContainer>
-      <LoginBox>
-        <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <InputGroup>
-            <Label htmlFor="username">Username</Label>
-            <Input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </InputGroup>
-          <InputGroup>
-            <Label htmlFor="password">Password</Label>
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </InputGroup>
-          <Button type="submit">Submit</Button>
-        </form>
-        <LoginWith>
-          <span>or login with</span>
-          <div style={{ marginTop: '15px' }}>
-            <SocialLoginButton type="button">
-              <FaGoogle />
-            </SocialLoginButton>
-            <SocialLoginButton type="button">
-              <FaLinkedin />
-            </SocialLoginButton>
-          </div>
-        </LoginWith>
-        <SignupLink>
-          <span>No Account? create </span>
-          <a href="/signup">Signup here</a>
-        </SignupLink>
-      </LoginBox>
-    </LoginContainer>
-  );
-}
 const LoginContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -75,7 +16,7 @@ const LoginBox = styled.div`
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   width: 350px;
-  border: 1px solid #ddd; /* إضافة حدود للوضوح */
+  border: 1px solid #ddd;
 `;
 
 const InputGroup = styled.div`
@@ -150,5 +91,122 @@ const SignupLink = styled.div`
     }
   }
 `;
+
+const CheckboxLabel = styled.label`
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  font-weight: bold;
+`;
+
+const Checkbox = styled.input`
+  margin-right: 10px;
+`;
+
+const ThankYouMessage = styled.p`
+  text-align: center;
+  font-size: 18px;
+  color: #007bff;
+  margin-top: 20px;
+`;
+
+function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [isInstructor, setIsInstructor] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('Username:', username);
+    console.log('Password:', password);
+    console.log('Is Instructor:', isInstructor);
+    
+    // تخزين حالة المدرب في localStorage
+    localStorage.setItem('isInstructor', isInstructor === 'yes');
+
+    // تعيين الحالة `submitted` إلى true لإظهار رسالة الشكر
+    setSubmitted(true);
+  };
+
+  return (
+    <LoginContainer>
+      <LoginBox>
+        {submitted ? (
+          <ThankYouMessage>Thank you for submitting!</ThankYouMessage>
+        ) : (
+          <>
+            <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Login</h1>
+            <form onSubmit={handleSubmit}>
+              <InputGroup>
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </InputGroup>
+              <InputGroup>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </InputGroup>
+              <InputGroup>
+                <Label htmlFor="instructor">Are you an instructor?</Label>
+                <CheckboxLabel>
+                  <Checkbox
+                    type="radio"
+                    id="instructor-yes"
+                    name="instructor"
+                    value="yes"
+                    checked={isInstructor === 'yes'}
+                    onChange={() => setIsInstructor('yes')}
+                  />
+                  <Label htmlFor="instructor-yes">Yes</Label>
+                </CheckboxLabel>
+                <CheckboxLabel>
+                  <Checkbox
+                    type="radio"
+                    id="instructor-no"
+                    name="instructor"
+                    value="no"
+                    checked={isInstructor === 'no'}
+                    onChange={() => setIsInstructor('no')}
+                  />
+                  <Label htmlFor="instructor-no">No</Label>
+                </CheckboxLabel>
+              </InputGroup>
+              <Button type="submit">Submit</Button>
+            </form>
+            <LoginWith>
+              <span>or login with</span>
+              <div style={{ marginTop: '15px' }}>
+                <SocialLoginButton type="button">
+                  <FaGoogle />
+                </SocialLoginButton>
+                <SocialLoginButton type="button">
+                  <FaLinkedin />
+                </SocialLoginButton>
+              </div>
+            </LoginWith>
+            <SignupLink>
+              <span>No Account? Create </span>
+              <a href="/signup">Signup here</a>
+            </SignupLink>
+          </>
+        )}
+      </LoginBox>
+    </LoginContainer>
+  );
+}
 
 export default Login;
