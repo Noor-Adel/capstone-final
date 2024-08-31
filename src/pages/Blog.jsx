@@ -7,7 +7,7 @@ const blogs = [
     date: "August 25, 2024",
     image: "/images/course-5-1.jpg", // تأكد من صحة مسار الصورة
     excerpt: "Discover exciting summer activities that your kids will love. From outdoor adventures to creative indoor games, we have it all!",
-    content: "تفاصيل المقالة الأولى..."
+    content:"Arts and Creativity Courses: From drawing and painting to sculpting and crafting, arts courses provide children with an opportunity to express their creativity and develop their artistic skills. Sports and physical activity courses: These courses include a range of activities such as swimming, football, and gymnastics. These courses help children improve their physical fitness and develop their sports skills."
   },
   {
     id: 2,

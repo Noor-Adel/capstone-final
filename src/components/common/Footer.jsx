@@ -2,7 +2,7 @@ import React from "react"
 import logImg from "../assets/images/logo2.png"
 
 import { NavLink } from "react-router-dom"
-import { FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 
 export const Footer = () => {
